@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <style>
+      :root {
+        background-color: gray;
+      }
+    </style>
+    <div class="box">
+      <ul>
+        <li>Node</li>
+      </ul>
+    </div>
+    <!-- Comment Node -->
+    <script>
+      // all node searching
+      const searchStack = [document.doctype, document.documentElement];
+      let node = searchStack.pop();
+
+      while (node) {
+        console.log(node.nodeType, node);
+
+        if (node.firstChild)
+          searchStack.push(node.firstChild);
+
+        if (node.nextSibling)
+          searchStack.push(node.nextSibling);
+
+        node = searchStack.pop();
+      }
+    </script>
+    <script>
+      console.log("document", Node.DOCUMENT_NODE);
+      console.log("doctype", Node.DOCUMENT_TYPE_NODE);
+      console.log("element", Node.ELEMENT_NODE);
+      console.log("text", Node.TEXT_NODE);
+      console.log("attr", Node.ATTRIBUTE_NODE);
+      console.log("comment", Node.COMMENT_NODE);
+    </script>
+</body>
+</html>
