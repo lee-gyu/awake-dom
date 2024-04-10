@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <style>
+      :root {
+        background-color: gray;
+      }
+    </style>
+    <script>
+      // the inheritance chain
+
+      function printChain(label, obj) {
+        console.log(`---${label}---`)
+        
+        let current = Object.getPrototypeOf(obj);
+        let level = 1;
+
+        while (current) {
+          // print prototype name
+          console.log( String("").padStart(level *2, " ") + current.constructor.name);
+          current = Object.getPrototypeOf(current);
+          ++level;
+        }
+      }
+
+      printChain("TextNode", document.createTextNode("text"));
+      printChain("HTMLDivElement", document.createElement("div"));
+      printChain("HTMLDocument", document);
+      printChain("HTMLHtmlElement", document.documentElement);
+      printChain("HTMLInputElement", document.createElement("input"));
+      printChain("HTMLTextAreaElement", document.createElement("textarea"));
+      printChain("HTMLImageElement", document.createElement("img"));
+      printChain("SvgElement", document.createElementNS("http://www.w3.org/2000/svg", "svg"));
+      
+    </script>
+</body>
+</html>
