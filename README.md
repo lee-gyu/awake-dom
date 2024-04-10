@@ -1,4 +1,4 @@
-# Awake DOM
+# DOM Enlightenment
 
 A repository for learning DOM structure and manipulation in browser.
 
